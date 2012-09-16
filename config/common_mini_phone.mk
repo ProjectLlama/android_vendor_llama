@@ -1,11 +1,11 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/cm/config/common.mk)
+# Inherit common llama stuff
+$(call inherit-product, vendor/llama/config/common.mk)
 
 # Bring in all audio files
 include frameworks/base/data/sounds/NewAudio.mk
 
-# Include CM audio files
-include vendor/cm/config/cm_audio.mk
+# Include llama audio files
+include vendor/llama/config/llama_audio.mk
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -18,5 +18,5 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
     PRODUCT_COPY_FILES += \
-        vendor/cm/prebuilt/common/bootanimation/320.zip:system/media/bootanimation.zip
+        vendor/llama/prebuilt/common/bootanimation/320.zip:system/media/bootanimation.zip
 endif

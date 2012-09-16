@@ -2,11 +2,6 @@
 #
 # Print startup info
 #
-L="log -p i -t cm"
+L="log -p i -t ProjectLlama"
 
-$L "Welcome to Android `getprop ro.build.version.release` / CyanogenMod-`getprop ro.cm.version`";
-$L "                                                _ ";
-$L " __ __ _ ___  _ _  __  ___  __ _ _  _  _  __  __))";
-$L "((_ \\(/'((_( ((\\( ((_)((_( (('((\\( ((\`1( ((_)((_( ";
-$L "     ))                 _))";
-$L " ";
+$L "Welcome to ProjectLlama! You're running Android `getprop ro.build.version.release` with ProjectLlama version `getprop ro.llama.version`";

@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= cyanogenmod
+PRODUCT_BRAND ?= llama
 
 # To deal with CM9 specifications
 # TODO: remove once all devices have been switched
@@ -26,7 +26,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/cm/prebuilt/common/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/llama/prebuilt/common/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -43,15 +43,7 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
-endif
-
-ifdef CM_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmodnightly
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmod
+    vendor/llama/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -63,65 +55,65 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-google \
     ro.com.android.wifi-watchlist=GoogleGuest \
     ro.setupwizard.enterprise_mode=1 \
-    ro.com.android.dateformat=MM-dd-yyyy \
+    ro.com.android.dateformat=dd-MM-yyyy \
     ro.com.android.dataroaming=false
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
-    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
+    vendor/llama/CHANGELOG.mkdn:system/etc/CHANGELOG-llama.txt
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/cm/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
+    vendor/llama/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/llama/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/llama/prebuilt/common/bin/50-llama.sh:system/addon.d/50-llama.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/cm/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/llama/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/llama/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/llama/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Compcache/Zram support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    vendor/cm/prebuilt/common/bin/compcache:system/bin/compcache \
-    vendor/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+    vendor/llama/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
+    vendor/llama/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/llama/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 # Nam configuration script
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
+    vendor/llama/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/proprietary/RomManager.apk:system/app/RomManager.apk \
-    vendor/cm/proprietary/Term.apk:system/app/Term.apk \
-    vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-    vendor/cm/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
+    vendor/llama/proprietary/RomManager.apk:system/app/RomManager.apk \
+    vendor/llama/proprietary/Term.apk:system/app/Term.apk \
+    vendor/llama/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
+    vendor/llama/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/cm/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    vendor/llama/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/llama/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# This is CM!
+# This is llama!
 PRODUCT_COPY_FILES += \
-    vendor/cm/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+    vendor/llama/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/mkshrc:system/etc/mkshrc
+    vendor/llama/prebuilt/common/etc/mkshrc:system/etc/mkshrc
 
 # T-Mobile theme engine
-include vendor/cm/config/themes_common.mk
+include vendor/llama/config/themes_common.mk
 
-# Required CM packages
+# Required llama packages
 PRODUCT_PACKAGES += \
     Camera \
     Development \
@@ -131,24 +123,21 @@ PRODUCT_PACKAGES += \
     Superuser.apk \
     su
 
-# Optional CM packages
+# Other llama packages
 PRODUCT_PACKAGES += \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \
-    Basic
-
-# Custom CM packages
-PRODUCT_PACKAGES += \
+    Basic \
+    LlamaTips \
     Trebuchet \
     DSPManager \
+    SuperSU \
     libcyanogen-dsp \
     audio_effects.conf \
-    CMWallpapers \
-    Apollo
-
-# Extra tools in CM
-PRODUCT_PACKAGES += \
+    LlamaWallpapers \
+    Apollo \
+    UnicornPorn \
     openvpn \
     e2fsck \
     mke2fs \
@@ -168,43 +157,43 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/common
 
 PRODUCT_VERSION_MAJOR = 10
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE = 0-RC0
 
-# Set CM_BUILDTYPE
-ifdef CM_NIGHTLY
-    CM_BUILDTYPE := NIGHTLY
+# Set llama_BUILDTYPE
+ifdef llama_NIGHTLY
+    llama_BUILDTYPE := NIGHTLY
 endif
-ifdef CM_EXPERIMENTAL
-    CM_BUILDTYPE := EXPERIMENTAL
+ifdef llama_EXPERIMENTAL
+    llama_BUILDTYPE := EXPERIMENTAL
 endif
-ifdef CM_RELEASE
-    CM_BUILDTYPE := RELEASE
+ifdef llama_RELEASE
+    llama_BUILDTYPE := RELEASE
 endif
 
-ifdef CM_BUILDTYPE
-    ifdef CM_EXTRAVERSION
+ifdef llama_BUILDTYPE
+    ifdef llama_EXTRAVERSION
         # Force build type to EXPERIMENTAL
-        CM_BUILDTYPE := EXPERIMENTAL
-        # Add leading dash to CM_EXTRAVERSION
-        CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
+        llama_BUILDTYPE := EXPERIMENTAL
+        # Add leading dash to llama_EXTRAVERSION
+        llama_EXTRAVERSION := -$(llama_EXTRAVERSION)
     endif
 else
-    # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION :=
+    # If llama_BUILDTYPE is not defined, set to UNOFFICIAL
+    llama_BUILDTYPE := UNOFFICIAL
+    llama_EXTRAVERSION :=
 endif
 
-ifdef CM_RELEASE
-    CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
+ifdef llama_RELEASE
+    llama_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(llama_BUILD)
 else
-    CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
+    llama_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(llama_BUILDTYPE)-$(llama_BUILD)$(llama_EXTRAVERSION)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.cm.version=$(CM_VERSION) \
-  ro.modversion=$(CM_VERSION)
+  ro.llama.version=$(llama_VERSION) \
+  ro.modversion=$(llama_VERSION)
