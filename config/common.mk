@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES +=  \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# This is llama!
+# CM NFC
 PRODUCT_COPY_FILES += \
     vendor/llama/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 # T-Mobile theme engine
 include vendor/llama/config/themes_common.mk
 
-# Required llama packages
+# Project Llama packages
 PRODUCT_PACKAGES += \
     Camera \
     Development \
@@ -75,22 +75,19 @@ PRODUCT_PACKAGES += \
     SpareParts \
     Superuser \
     Superuser.apk \
-    su
-
-# Other llama packages
-PRODUCT_PACKAGES += \
+    su \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \
     Basic \
     LlamaTips \
-    Trebuchet \
+    Slingshot \
     DSPManager \
     SuperSU \
     libcyanogen-dsp \
     audio_effects.conf \
     LlamaWallpapers \
-    Apollo \
+    Pinata \
     UnicornPorn \
     openvpn \
     e2fsck \
