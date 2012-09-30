@@ -12,6 +12,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dateformat=dd-MM-yyyy \
     ro.com.android.dataroaming=false
 
+# Copy bootanimation
+ifneq ($(BOOTANIMATION_NAME),)
+    PRODUCT_COPY_FILES += \
+        vendor/llama/prebuilt/common/bootanimation/bootanimation-$(BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+else
+    PRODUCT_COPY_FILES += \
+        vendor/llama/prebuilt/common/bootanimation/bootanimation-HDPI.zip:system/media/bootanimation.zip
+endif
+
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
     vendor/llama/CHANGELOG.mkdn:system/etc/CHANGELOG-llama.txt
