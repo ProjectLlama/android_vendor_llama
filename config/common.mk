@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 # T-Mobile theme engine
 include vendor/llama/config/themes_common.mk
 
-# Project Llama packages
+# CM/Android Packages
 PRODUCT_PACKAGES += \
     Camera \
     Development \
@@ -80,19 +80,24 @@ PRODUCT_PACKAGES += \
     VoiceDialer \
     SoundRecorder \
     Basic \
-    LlamaTips \
-    Slingshot \
     DSPManager \
     SuperSU \
     libcyanogen-dsp \
     audio_effects.conf \
-    LlamaWallpapers \
-    Pinata \
     UnicornPorn \
     openvpn \
     e2fsck \
     mke2fs \
     tune2fs
+
+# Project Llama packages
+PRODUCT_PACKAGES += \
+    LlamaWallpapers \
+    ProTips \
+    Slingshot \
+    Pinata \
+    PhoneMotion \
+    ROMControl
 
 # Openssh
 PRODUCT_PACKAGES += \
