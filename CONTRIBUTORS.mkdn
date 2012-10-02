@@ -4,3 +4,4 @@ Project Llama
 Maintainers (Project Llama 10):
 ------------
 * __HTC Wildfire S:__ benjamingwynn
+* __Samsung Galaxy Nexus:__ dudeman1996
