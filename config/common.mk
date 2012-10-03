@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
     vendor/llama/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
 PRODUCT_COPY_FILES +=  \
-    vendor/llama/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
+    vendor/llama/prebuilt/common/app/Superuser.apk:system/app/Superuser.apk
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
