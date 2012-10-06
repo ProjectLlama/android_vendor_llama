@@ -164,14 +164,22 @@ endif
 ifdef LLAMA_BUILD_STABLE
     PRODUCT_PROPERTY_OVERRIDES += \
       ro.llama.codename=$(PRODUCT_VERSION_CODENAME)
-      ro.llama.codenamesmall=$(PRODUCT_VERSION_CODENAME_small)
+      ro.llama.codenamesmall=$(PRODUCT_VERSION_CODENAME_SMALL)
+endif
+
+# Don't make any build.prop changes anymore if not building stable, we add the "Weekly" string in settings instead. This also allows us to translate it.
+
+# TODO: Use the ro.llama.official flag for something.
+
+ifdef DEVICE_MAINTAINER
+    PRODUCT_PROPERTY_OVERRIDES += \
+     ro.llama.maintainer=$(DEVICE_MAINTAINER)
+     ro.llama.official=true
 else
     PRODUCT_PROPERTY_OVERRIDES += \
-      ro.llama.codename=Weekly
-      ro.llama.codenamesmall=0
+     ro.llama.official=false
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.llama.version=$(LLAMA_VERSION) \
-  ro.modversion=$(LLAMA_VERSION) \
-  ro.llama.maintainer=$(DEVICE_MAINTAINER)
+  ro.modversion=$(LLAMA_VERSION)
