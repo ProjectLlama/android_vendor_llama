@@ -3,16 +3,24 @@
 #	MAINTAINED BY DUDEMAN1996
 #
 
+### Project Llama configuration
+
+# Bootanimation
+BOOTANIMATION_NAME := XHDPI
+
+# Ohhai Ivan!
+DEVICE_MAINTAINER := dudeman1996
+
+# This is an official build
+LLAMA_OFFICIAL := true
+
 ### Specify phone tech before including full_phone
 $(call inherit-product, vendor/llama/config/gsm.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := GN-GSM
 
-# Boot animation
-BOOTANIMATION_NAME := XHDPI
-
-# Inherit some common Llama stuff.
+### Call Project Llama stuff.
 $(call inherit-product, vendor/llama/config/common_full_phone.mk)
 
 # Enhanced NFC

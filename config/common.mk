@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= llama
+PRODUCT_BRAND ?= Project-Llama
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -122,40 +122,56 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/common
 
-PRODUCT_VERSION_MAJOR = 10
-PRODUCT_VERSION_MINOR = 0
-PRODUCT_VERSION_MAINTENANCE = 0-RC0
+# -- What version of Project Llama are we building?
 
-# Set llama_BUILDTYPE
-ifdef LLAMA_NIGHTLY
-    LLAMA_BUILDTYPE := NIGHTLY
+#TODO: Change PRODUCT_VERSION_MAJOR and _MINOR to follow the current Android version automatically. 
+PRODUCT_VERSION_MAJOR = 4
+PRODUCT_VERSION_MINOR = 1
+PRODUCT_VERSION_CODENAME_SMALL = 1
+PRODUCT_VERSION_CODENAME = Hydrogen
+
+# -- Change this to true to change all weekly builds to stable builds.
+LLAMA_BUILD_STABLE = false
+
+# -- Set buildtype:
+
+ifdef LLAMA_OFFICIAL
+    LLAMA_BUILDTYPE := WEEKLY
+    ifdef LLAMA_BUILD_STABLE
+	LLAMA_BUILDTYPE := STABLE
+    endif
 endif
-ifdef LLAMA_EXPERIMENTAL
-    LLAMA_BUILDTYPE := EXPERIMENTAL
-endif
-ifdef LLAMA_RELEASE
-    LLAMA_BUILDTYPE := RELEASE
-endif
+
+# -- Is it official?
 
 ifdef LLAMA_BUILDTYPE
-    ifdef LLAMA_EXTRAVERSION
-        # Force build type to EXPERIMENTAL
-        LLAMA_BUILDTYPE := EXPERIMENTAL
-        # Add leading dash to llama_EXTRAVERSION
-        LLAMA_EXTRAVERSION := -$(llama_EXTRAVERSION)
-    endif
+    # If the buildtype was defined above, don't do anything.
 else
-    # If llama_BUILDTYPE is not defined, set to UNOFFICIAL
+    # If the buildtype wasn't defined, call the build UNOFFICIAL.
     LLAMA_BUILDTYPE := UNOFFICIAL
-    LLAMA_EXTRAVERSION :=
 endif
 
-ifdef LLAMA_RELEASE
-    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LLAMA_BUILD)
+# -- Decide on the final version name:
+
+ifdef LLAMA_BUILD_STABLE
+    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(PRODUCT_VERSION_CODENAME_SMALL)
 else
-    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(LLAMA_BUILDTYPE)-$(llama_BUILD)$(LLAMA_EXTRAVERSION)
+    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(LLAMA_BUILD)-$(LLAMA_BUILDTYPE)
+endif
+
+#-- Tell build.prop our new settings
+
+ifdef LLAMA_BUILD_STABLE
+    PRODUCT_PROPERTY_OVERRIDES += \
+      ro.llama.codename=$(PRODUCT_VERSION_CODENAME)
+      ro.llama.codenamesmall=$(PRODUCT_VERSION_CODENAME_small)
+else
+    PRODUCT_PROPERTY_OVERRIDES += \
+      ro.llama.codename=Weekly
+      ro.llama.codenamesmall=0
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.llama.version=$(LLAMA_VERSION) \
-  ro.modversion=$(LLAMA_VERSION)
+  ro.modversion=$(LLAMA_VERSION) \
+  ro.llama.maintainer=$(DEVICE_MAINTAINER)
