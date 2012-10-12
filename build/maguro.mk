@@ -29,9 +29,6 @@ $(call inherit-product, vendor/llama/config/nfc_enhanced.mk)
 # Inherit device configuration
 $(call inherit-product, device/samsung/maguro/full_maguro.mk)
 
-# Inherit proprietaries
-$(call inherit-product, vendor/samsung/maguro/device-vendor-blobs.mk)
-
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := maguro
 PRODUCT_NAME := llama_maguro
