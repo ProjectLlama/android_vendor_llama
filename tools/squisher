@@ -1,8 +1,9 @@
 #!/bin/sh
 #
-# Squish a CM otapackage for distribution
+# Squish a LLAMA otapackage for distribution
 # cyanogen
 #
+#Credits to CyanogenMod 
 
 OUT_TARGET_HOST=`uname -a | grep Darwin`
 if [ -z "$OUT_TARGET_HOST" ]
@@ -37,7 +38,7 @@ if [ ! -f "$OTAPACKAGE" ]; then
 	exit 1
 fi
 
-OPTICHARGER=$ANDROID_BUILD_TOP/vendor/cm/tools/opticharger
+OPTICHARGER=$ANDROID_BUILD_TOP/vendor/llama/tools/opticharger
 QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
@@ -94,9 +95,9 @@ rm -rf $REPACK/ota/recovery
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
 # Determine what to name the new signed package
-MODVERSION=`sed -n -e'/ro\.cm\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
-OUTFILE=$OUT/cm-$MODVERSION.zip
-echo MODVERSION: $MODVERSION
+MODVERSION=`sed -n -e'/ro\.llama\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
+OUTFILE=$OUT/llama-${LLAMA_DEVICE}-`date +%d%m%y`.zip
+
 
 # Pack it up and sign
 printf "Zipping package..."
