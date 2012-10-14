@@ -29,6 +29,6 @@ PRODUCT_NAME := llama_marvel
 PRODUCT_BRAND := htc_europe
 PRODUCT_MODEL := Wildfire S
 PRODUCT_MANUFACTURER := HTC
-
+LLAMA_DEVICE := marvel
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=yakju BUILD_FINGERPRINT="projectllama/llama/marvel:4.1.1/llama/01:user/release-keys" PRIVATE_BUILD_DESC="llama-user 4.1.1 wildfires marvel release-keys"
