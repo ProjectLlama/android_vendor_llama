@@ -35,6 +35,6 @@ PRODUCT_NAME := llama_maguro
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Galaxy Nexus
 PRODUCT_MANUFACTURER := Samsung
-
+LLAMA_DEVICE := maguro
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=yakju BUILD_FINGERPRINT="projectllama/llama/maguro:4.1.1/llama/01:user/release-keys" PRIVATE_BUILD_DESC="llama-user 4.1.1 gnexus maguro release-keys"
