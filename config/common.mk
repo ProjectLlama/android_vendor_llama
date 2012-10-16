@@ -179,9 +179,6 @@ else
     PRODUCT_PROPERTY_OVERRIDES += \
      ro.llama.official=false
 endif
-PRODUCT_COPY_FILES += \
-    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
-    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
 # ParanoidAndroid Packages
 PRODUCT_PACKAGES += \
