@@ -179,7 +179,31 @@ else
     PRODUCT_PROPERTY_OVERRIDES += \
      ro.llama.official=false
 endif
+PRODUCT_COPY_FILES += \
+    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
+    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
+# ParanoidAndroid Packages
+PRODUCT_PACKAGES += \
+    ParanoidPreferences \
+
+# ParanoidAndroid Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/$(TARGET_PRODUCT)
+
+# Allow device family to add overlays and use a same prop.conf
+ifneq ($(OVERLAY_TARGET),)
+    PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/$(OVERLAY_TARGET)
+    PA_CONF_SOURCE := $(OVERLAY_TARGET)
+else
+    PA_CONF_SOURCE := $(TARGET_PRODUCT)
+endif
+
+PRODUCT_COPY_FILES += \
+    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
+    vendor/llama/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
+
+	
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.llama.version=$(LLAMA_VERSION) \
   ro.modversion=$(LLAMA_VERSION)
