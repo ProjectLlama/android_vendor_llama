@@ -98,7 +98,7 @@ rm -rf $REPACK/ota/recovery
 
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.llama\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
-OUTFILE=$OUT/llama-${MODVERSION}-`date +%d%m%y`.zip
+OUTFILE=$OUT/llama-$MODVERSION-`date +%d%m%y`.zip
 echo -e $CL_CYN"MODVERSION: $MODVERSION"$CL_RST
 
 # Pack it up and sign
