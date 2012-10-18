@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Squish a LLAMA otapackage for distribution
-# cyanogen
+# Squish a Project Llama otapackage for distribution
+# Created originally by cyanogen
 #
-#Credits to CyanogenMod 
+# Credits to Cyanogen and CyanogenMod
 
 . $ANDROID_BUILD_TOP/vendor/llama/tools/functions
 
