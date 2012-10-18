@@ -202,5 +202,6 @@ PRODUCT_COPY_FILES += \
 
 	
 PRODUCT_PROPERTY_OVERRIDES += \
+  ro.llamaversion=$(LLAMA_VERSION) \
   ro.llama.version=$(LLAMA_VERSION) \
   ro.modversion=$(LLAMA_VERSION)
