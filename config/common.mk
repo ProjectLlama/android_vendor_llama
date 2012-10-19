@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
 
 # CM-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+    vendor/llama/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
 # Compcache/Zram support
 PRODUCT_COPY_FILES += \
