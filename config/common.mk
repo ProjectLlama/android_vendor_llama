@@ -90,7 +90,6 @@ PRODUCT_PACKAGES += \
     SoundRecorder \
     Basic \
     DSPManager \
-    SuperSU \
     libcyanogen-dsp \
     audio_effects.conf \
     UnicornPorn \
