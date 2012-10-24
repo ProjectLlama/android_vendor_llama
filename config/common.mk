@@ -132,8 +132,8 @@ PRODUCT_VERSION_MINOR = 1
 PRODUCT_VERSION_CODENAME_SMALL = 1
 PRODUCT_VERSION_CODENAME = Hydrogen
 
-# -- Change this to true to change all weekly builds to stable builds.
-LLAMA_BUILD_STABLE = false
+# -- Uncomment this to change all weekly builds intto stable builds.
+#LLAMA_BUILD_STABLE = true
 
 # -- Set buildtype:
 
