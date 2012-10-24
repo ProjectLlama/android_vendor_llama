@@ -1,6 +1,4 @@
-CyanogenMod
+Project Llama
 ===============
 
-###TODO
-
-TODO
+Todo :)
