@@ -20,6 +20,9 @@ $(call inherit-product, vendor/llama/config/gsm.mk)
 # Release name
 PRODUCT_RELEASE_NAME := MARVEL
 
+### Call Project Llama stuff.
+$(call inherit-product, vendor/llama/config/common_full_phone.mk)
+
 # Inherit device configuration
 $(call inherit-product, device/htc/marvel/marvel.mk)
 
