@@ -160,7 +160,7 @@ ifdef LLAMA_BUILD_STABLE
     LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(PRODUCT_VERSION_CODENAME_SMALL)
 else
     # llama_shooteru-4.1-2012-WEEK43.zip
-    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y)-WEEK$(shell date -u %W)
+    LLAMA_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y)-WEEK$(shell date -u +%W)
 endif
 
 #-- Tell build.prop our new settings
