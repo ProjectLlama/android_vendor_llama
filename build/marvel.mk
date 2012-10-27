@@ -7,7 +7,7 @@
 
 # Bootanimation
 BOOTANIMATION_NAME := MDPI
-OVERLAY_TARGET := pa_mdpi
+OVERLAY_TARGET := pa_large-mdpi
 # Ohhai Benjamin!
 DEVICE_MAINTAINER := benjamingwynn
 
