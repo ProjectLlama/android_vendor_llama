@@ -3,6 +3,7 @@ Project Llama
 
 Maintainers (Project Llama 1):
 ------------
+* __HTC One X:__ benjamingwynn
 * __HTC Wildfire S:__ benjamingwynn
 * __Samsung Galaxy Nexus:__ dudeman1996
 * __HTC Evo 3D:__ helicopter88
