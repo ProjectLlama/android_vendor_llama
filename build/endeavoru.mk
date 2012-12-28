@@ -38,3 +38,4 @@ PRODUCT_NAME := cm_endeavoru
 PRODUCT_BRAND := htc_europe
 PRODUCT_MODEL := HTC One X
 PRODUCT_MANUFACTURER := HTC
+LLAMA_DEVICE := endeavoru
