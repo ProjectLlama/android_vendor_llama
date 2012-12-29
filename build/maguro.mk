@@ -7,7 +7,6 @@
 
 # Bootanimation
 BOOTANIMATION_NAME := XHDPI
-OVERLAY_TARGET := pa_xhdpi
 # Ohhai Ivan!
 DEVICE_MAINTAINER := dudeman1996
 

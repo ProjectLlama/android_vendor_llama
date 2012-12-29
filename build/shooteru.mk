@@ -7,8 +7,6 @@
 
 # Bootanimation
 BOOTANIMATION_NAME := HDPI
-#Paranoid stuff
-OVERLAY_TARGET := pa_hdpi
 
 # Ohhai Domenico!
 DEVICE_MAINTAINER := helicopter88
