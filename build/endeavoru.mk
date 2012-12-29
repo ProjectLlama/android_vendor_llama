@@ -7,7 +7,6 @@
 
 # Bootanimation
 BOOTANIMATION_NAME := XHDPI
-OVERLAY_TARGET := pa_xhdpi
 # Ohhai Benjamin!
 DEVICE_MAINTAINER := benjamingwynn
 
@@ -27,7 +26,7 @@ $(call inherit-product, vendor/llama/config/common_full_phone.mk)
 $(call inherit-product, vendor/llama/config/nfc_enhanced.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/maguro/full_maguro.mk)
+$(call inherit-product, device/htc/endeavoru/full_endeavoru.mk)
 
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=endeavoru BUILD_FINGERPRINT="htc_europe/endeavoru/endeavoru:4.0.4/IMM76D/89015.2:user/release-keys" PRIVATE_BUILD_DESC="2.17.401.2 CL89015 release-keys"
