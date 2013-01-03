@@ -129,7 +129,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/llama/overlay/common
 #TODO: Change PRODUCT_VERSION_MAJOR and _MINOR to follow the current Android version automatically. 
 PRODUCT_VERSION_MAJOR = 4
 PRODUCT_VERSION_MINOR = 1
-PRODUCT_VERSION_CODENAME_SMALL = 1
+PRODUCT_VERSION_CODENAME_SMALL = 2
 PRODUCT_VERSION_CODENAME = Hydrogen
 
 # -- Uncomment this to change all weekly builds intto stable builds.

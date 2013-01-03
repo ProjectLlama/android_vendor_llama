@@ -35,4 +35,4 @@ PRODUCT_MANUFACTURER := HTC
 #No surprise the zip wasn't named correctly
 LLAMA_DEVICE := shooteru
 #Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=yakju BUILD_FINGERPRINT="projectllama/llama/shooteru:4.1.1/shooteru/01:user/release-keys" PRIVATE_BUILD_DESC="llama-user 4.1.1 evo3g shooteru release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=shooteru BUILD_FINGERPRINT="projectllama/llama/shooteru:4.1.2/shooteru/01:user/release-keys" PRIVATE_BUILD_DESC="llama-user 4.1.2 evo3g shooteru release-keys"
